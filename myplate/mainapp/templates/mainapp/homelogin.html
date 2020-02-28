@@ -1,0 +1,38 @@
+{% extends 'mainapp/base_layout.html' %}
+
+{% load static %}
+{%block content%}
+
+
+      {% if user.is_authenticated %} 
+      <h1> {{ user.username }}</h1>
+  
+  {% else %}
+           
+    <div class="row" style="padding-top: 5%;">
+      <div class="col-sm-8"></div>
+      <div class="col-sm-4">
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+              
+              <div class="card" style="width:350px">
+                  <center>
+                      <img class="card-img-top" src="{%static 'mainapp/assets/hm.png'%}" alt="Card image" style="width:200px;height:200px;padding-top: 10px;">
+
+                  </center>
+                  <div class="card-body">
+                    <h4 class="card-title">Myplate Login</h4>
+                    <p class="card-text">This should be accessed by HM or any office bearers</p>
+                    <a href="{% url 'account_login' %}" class="btn btn-primary">LOGIN</a>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  {% endif %}
+
+{% endblock%}
